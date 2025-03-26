@@ -1,0 +1,8 @@
+*~
+.DS_Store
+._*
+*.swp
+/*.exe
+/src/*.exe
+*.bak
+*.tmp
