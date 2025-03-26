@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "dosbox-staging-ext",
+  "description": "DOSBox Staging external dependencies.",
+  "version": "0.83.0-alpha",
+  "dependencies": [
+    "fluidsynth",
+    "libslirp"
+  ],
+  "builtin-baseline": "117512d870c0f260f4914b6b4bb006b9054b06eb"
+}
