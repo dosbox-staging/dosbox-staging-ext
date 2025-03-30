@@ -6,3 +6,4 @@
 /src/*.exe
 *.bak
 *.tmp
+vcpkg_installed
