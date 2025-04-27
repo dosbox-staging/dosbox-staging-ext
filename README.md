@@ -42,7 +42,7 @@ library on each platform:
 ### Windows
 
 ```
-dumpbin /dependents libfluidsynth-3.dll
+dumpbin /dependents fluidsynth-3.dll
 ```
 
 Note `dumpbin` does *not* perform a recursive lookup; you'll need to traverse
