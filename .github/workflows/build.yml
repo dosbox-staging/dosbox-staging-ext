@@ -221,9 +221,9 @@ jobs:
           ${{ env.VCPKG_ROOT }}\vcpkg.exe install --overlay-ports=fluidsynth --triplet ${{ matrix.conf.triplet }}
           if (-not $?) { throw "vcpkg failed to install packages" }
 
-#      - name: Dump workspace contents
-#        run: find $RUNNER_WORKSPACE
-#        shell: bash
+      - name: Dump workspace contents
+        run: find $RUNNER_WORKSPACE
+        shell: bash
  
       - name: Prepare release libs to upload
         shell: bash
