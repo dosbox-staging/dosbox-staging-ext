@@ -1,1 +1,1 @@
-libfluidsynth.3.dylib libslirp.dylib libglib-2.0.0.dylib libgthread-2.0.0.dylib libintl.8.dylib
+libfluidsynth.3.dylib libslirp.dylib libglib-2.0.0.dylib libgthread-2.0.0.dylib libintl.8.dylib libpcre2-8.0.14.0.dylib
