@@ -57,6 +57,7 @@ jobs:
           mkdir -p deps/arm64/release
           cd $GITHUB_WORKSPACE/vcpkg_installed/arm64-osx-dynamic/lib/
           cp $(<$GITHUB_WORKSPACE/deps-macos.txt) $GITHUB_WORKSPACE/deps/arm64/release
+          chmod 644 $GITHUB_WORKSPACE/deps/arm64/release/*
 
           echo "*** libfluidsynth transitive deps:"
           otool -L libfluidsynth.3.dylib
@@ -68,6 +69,7 @@ jobs:
           mkdir -p deps/arm64/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/arm64-osx-dynamic/debug/lib/
           cp $(<$GITHUB_WORKSPACE/deps-macos.txt) $GITHUB_WORKSPACE/deps/arm64/debug
+          chmod 644 $GITHUB_WORKSPACE/deps/arm64/debug/*
 
 
       - name: Install packages (x64)
@@ -80,11 +82,13 @@ jobs:
           mkdir -p deps/x64/release
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-osx-dynamic/lib/
           cp $(<$GITHUB_WORKSPACE/deps-macos.txt) $GITHUB_WORKSPACE/deps/x64/release
+          chmod 644 $GITHUB_WORKSPACE/deps/x64/release/*
 
           cd $GITHUB_WORKSPACE
           mkdir -p deps/x64/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-osx-dynamic/debug/lib/
           cp $(<$GITHUB_WORKSPACE/deps-macos.txt) $GITHUB_WORKSPACE/deps/x64/debug
+          chmod 644 $GITHUB_WORKSPACE/deps/x64/release/*
 
 
       - name: Prepare release deps (universal)
@@ -159,6 +163,7 @@ jobs:
           mkdir -p $GITHUB_WORKSPACE/deps/release
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/lib/
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/release
+          chmod 644 $GITHUB_WORKSPACE/deps/release/*
 
           echo "*** libfluidsynth transitive deps:"
           ldd libfluidsynth.so.3
@@ -170,6 +175,7 @@ jobs:
           mkdir -p $GITHUB_WORKSPACE/deps/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/debug/lib/
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/debug
+          chmod 644 $GITHUB_WORKSPACE/deps/debug/*
 
 
       - name: Upload binary
@@ -237,6 +243,10 @@ jobs:
           cd $GITHUB_WORKSPACE/vcpkg_installed/${{ matrix.conf.triplet }}/debug/bin/
           cp $(<$GITHUB_WORKSPACE/deps-windows-debug.txt) $GITHUB_WORKSPACE/deps/debug
 
+
+#      - name: Dump workspace contents
+#        run: find $RUNNER_WORKSPACE
+#        shell: bash
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
