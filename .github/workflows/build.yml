@@ -110,9 +110,9 @@ jobs:
           rm -rf $ARM64 $X64
 
 
-#      - name: Dump workspace contents
-#        run: find $RUNNER_WORKSPACE
-#        shell: bash
+      - name: Dump workspace contents
+        run: find $RUNNER_WORKSPACE
+        shell: bash
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -154,9 +154,9 @@ jobs:
         run: |
           ${{ env.VCPKG_ROOT }}/vcpkg install --overlay-ports=fluidsynth --triplet x64-linux-dynamic
 
-#      - name: Dump workspace contents
-#        run: find $RUNNER_WORKSPACE
-#        shell: bash
+      - name: Dump workspace contents
+        run: find $RUNNER_WORKSPACE
+        shell: bash
  
       - name: Prepare libs to upload
         run: |
@@ -171,11 +171,21 @@ jobs:
           echo "*** libslirp transitive deps:"
           ldd libslirp.so
 
+          # TODO temporary workaround until the vcpkg maintainers fix the
+          # Linux library name
+          cd $GITHUB_WORKSPACE/deps/release
+          mv libslirp.so libslirp.so.0
+
           cd $GITHUB_WORKSPACE
           mkdir -p $GITHUB_WORKSPACE/deps/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/debug/lib/
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/debug
           chmod 644 $GITHUB_WORKSPACE/deps/debug/*
+
+          # TODO temporary workaround until the vcpkg maintainers fix the
+          # Linux library name
+          cd $GITHUB_WORKSPACE/deps/debug
+          mv libslirp.so libslirp.so.0
 
 
       - name: Upload binary
@@ -243,10 +253,6 @@ jobs:
           cd $GITHUB_WORKSPACE/vcpkg_installed/${{ matrix.conf.triplet }}/debug/bin/
           cp $(<$GITHUB_WORKSPACE/deps-windows-debug.txt) $GITHUB_WORKSPACE/deps/debug
 
-
-#      - name: Dump workspace contents
-#        run: find $RUNNER_WORKSPACE
-#        shell: bash
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
