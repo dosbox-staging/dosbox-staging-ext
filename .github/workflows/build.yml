@@ -162,6 +162,11 @@ jobs:
         run: |
           mkdir -p $GITHUB_WORKSPACE/deps/release
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/lib/
+
+          # TODO temporary hack until the vcpkg maintainers fix the Linux
+          # library name
+          mv libslirp.so libslirp.so.0
+
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/release
           chmod 644 $GITHUB_WORKSPACE/deps/release/*
 
@@ -174,6 +179,11 @@ jobs:
           cd $GITHUB_WORKSPACE
           mkdir -p $GITHUB_WORKSPACE/deps/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/debug/lib/
+
+          # TODO temporary hack until the vcpkg maintainers fix the Linux
+          # library name
+          mv libslirp.so libslirp.so.0
+
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/debug
           chmod 644 $GITHUB_WORKSPACE/deps/debug/*
 
