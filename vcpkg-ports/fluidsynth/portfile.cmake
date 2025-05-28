@@ -27,7 +27,9 @@ vcpkg_check_features(
         pulseaudio  enable-pulseaudio
 )
 
-set(OPTIONS_TO_DISABLE enable-coverage enable-dbus enable-floats enable-fpe-check enable-framework enable-jack
+set(OPTIONS_TO_ENABLE enable-floats)
+
+set(OPTIONS_TO_DISABLE enable-coverage enable-dbus enable-fpe-check enable-framework enable-jack
     enable-libinstpatch enable-midishare enable-oboe enable-openmp enable-oss enable-pipewire enable-portaudio
     enable-profiling enable-readline enable-sdl2 enable-sdl3 enable-systemd enable-trap-on-fpe enable-ubsan
     enable-dsound enable-wasapi enable-waveout enable-winmidi enable-coreaudio enable-coremidi enable-alsa enable-opensles)
