@@ -8,10 +8,6 @@
   "supports": "!xbox",
   "dependencies": [
     {
-      "name": "alsa",
-      "platform": "linux"
-    },
-    {
       "name": "fluidsynth",
       "host": true,
       "default-features": false,
