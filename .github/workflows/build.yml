@@ -171,23 +171,13 @@ jobs:
           ldd libfluidsynth.so.3
 
           echo "*** libslirp transitive deps:"
-          ldd libslirp.so
-
-          # TODO temporary workaround until the vcpkg maintainers fix the
-          # Linux library name
-          cd $GITHUB_WORKSPACE/deps/release
-          mv libslirp.so libslirp.so.0
+          ldd libslirp.so.0
 
           cd $GITHUB_WORKSPACE
           mkdir -p $GITHUB_WORKSPACE/deps/debug
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/debug/lib/
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/debug
           chmod 644 $GITHUB_WORKSPACE/deps/debug/*
-
-          # TODO temporary workaround until the vcpkg maintainers fix the
-          # Linux library name
-          cd $GITHUB_WORKSPACE/deps/debug
-          mv libslirp.so libslirp.so.0
 
 
       - name: Upload binary
