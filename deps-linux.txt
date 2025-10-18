@@ -1,1 +1,1 @@
-libfluidsynth.so.3 libslirp.so libglib-2.0.so.0 libpcre2-8.so.0
+libslirp.so libglib-2.0.so.0 libpcre2-8.so.0

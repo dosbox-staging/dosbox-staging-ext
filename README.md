@@ -4,8 +4,8 @@ This repository contains various external dependencies (typically dynamic
 libraries) required by [DOSBox Staging](https://github.com/dosbox-staging/dosbox-staging).
 
 Certain dependencies can take a very long time to compile on Windows. For
-example, FluidSynth and Slirp usually take 20-30 minutes to compile from
-scratch due to their dependence on `glib` which requires vcpkg to build an
+example, Slirp usually takes 20-30 minutes to compile from
+scratch due to its dependency on `glib` which requires vcpkg to build an
 entire MSYS2 toolchain first. The situation is better on macOS and Linux, but
 compiling these two from scratch still takes about 5-7 minutes. The solution
 is to build these rarely changing artifacts outside the DOSBox Staging CI
@@ -42,7 +42,7 @@ library on each platform:
 ### Windows
 
 ```
-dumpbin /dependents fluidsynth-3.dll
+dumpbin /dependents slirp-0.dll
 ```
 
 Note `dumpbin` does *not* perform a recursive lookup; you'll need to traverse
@@ -59,7 +59,7 @@ c:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
 This will list all transitive dynamic dependencies recursively:
 
 ```
-otool -L libfluidsynth.3.dylib
+otool -L libslirp.dylib
 ```
 
 ### Linux
@@ -67,5 +67,5 @@ otool -L libfluidsynth.3.dylib
 This will list all transitive dynamic dependencies recursively:
 
 ```
-ldd libfluidsynth.so.3
+ldd libslirp.so
 ```

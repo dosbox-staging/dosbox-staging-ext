@@ -4,7 +4,6 @@
   "description": "DOSBox Staging external dependencies.",
   "version": "0.83.0-alpha",
   "dependencies": [
-    "fluidsynth",
     "libslirp"
   ],
   "builtin-baseline": "52572867982f5265a7c71f59be1a006dfc49c90c"
