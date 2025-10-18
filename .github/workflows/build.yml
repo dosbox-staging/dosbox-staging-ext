@@ -61,9 +61,6 @@ jobs:
           cp $(<$GITHUB_WORKSPACE/deps-macos.txt) $GITHUB_WORKSPACE/deps/arm64/release
           chmod 644 $GITHUB_WORKSPACE/deps/arm64/release/*
 
-          echo "*** libfluidsynth transitive deps:"
-          otool -L libfluidsynth.3.dylib
-
           echo "*** libslirp transitive deps:"
           otool -L libslirp.dylib
 
@@ -166,9 +163,6 @@ jobs:
           cd $GITHUB_WORKSPACE/vcpkg_installed/x64-linux-dynamic/lib/
           cp $(<$GITHUB_WORKSPACE/deps-linux.txt) $GITHUB_WORKSPACE/deps/release
           chmod 644 $GITHUB_WORKSPACE/deps/release/*
-
-          echo "*** libfluidsynth transitive deps:"
-          ldd libfluidsynth.so.3
 
           echo "*** libslirp transitive deps:"
           ldd libslirp.so
