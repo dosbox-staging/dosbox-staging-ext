@@ -6,5 +6,5 @@
   "dependencies": [
     "libslirp"
   ],
-  "builtin-baseline": "52572867982f5265a7c71f59be1a006dfc49c90c"
+  "builtin-baseline": "40fc884737509b217e5c92d46ca4724ea15e38a4"
 }
